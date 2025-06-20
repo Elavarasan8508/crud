@@ -1,0 +1,23 @@
+
+
+.user_pic{
+    display: block;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.update,
+.rbtn{
+    background-color: burlywood;
+    color: aliceblue;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.rbtn:hover{
+    background-color: brown;
+}
+.update:hover{
+    background-color: black;
+}
