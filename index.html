@@ -1,19 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate CRUD App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="text" id="name" placeholder="Enter a Name....">
-    <input type="text" id="para" placeholder="Enter a Paragraph..">
-    <button id="btn">Add</button>
-    <div id="list">
+  <div class="container">
+    <header>
+      <h1>🚀 Ultimate CRUD Application</h1>
+      <p class="subtitle">Create, Read, Update, and Delete entries with ease</p>
+    </header>
 
+    <div class="controls">
+      <div class="search-container">
+        <i class="fas fa-search"></i>
+        <input type="text" id="search" placeholder="Search by name...">
+      </div>
+      <div class="sort-container">
+        <i class="fas fa-sort"></i>
+        <select id="sort">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="az">A-Z</option>
+          <option value="za">Z-A</option>
+        </select>
+      </div>
     </div>
-   
+
+    <div class="form">
+      <div class="form-group">
+        <input type="text" id="name" placeholder="Name" required>
+        <span class="focus-border"></span>
+      </div>
+      <div class="form-group">
+        <input type="text" id="para" placeholder="Description" required>
+        <span class="focus-border"></span>
+      </div>
+      <div class="file-upload">
+        <label for="photoInput" class="upload-btn">
+          <i class="fas fa-cloud-upload-alt"></i> Choose Image
+        </label>
+        <input type="file" id="photoInput" accept="image/*">
+        <span id="fileName">No file chosen</span>
+      </div>
+      <button id="addBtn" class="add-btn">
+        <i class="fas fa-plus-circle"></i> Add Entry
+      </button>
+    </div>
+
+    <div class="stats">
+      <span id="entryCount">0 entries</span>
+      <button id="clearAll" class="clear-btn">Clear All</button>
+    </div>
+
+    <div id="list" class="list-container"></div>
+
+    <div class="empty-state" id="emptyState">
+      <img src="https://cdn-icons-png.flaticon.com/512/4076/4076478.png" alt="No entries">
+      <h3>No entries yet</h3>
+      <p>Add your first entry using the form above</p>
+    </div>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Edit Entry</h2>
+      <div class="form-group">
+        <input type="text" id="editName" placeholder="Name" required>
+        <span class="focus-border"></span>
+      </div>
+      <div class="form-group">
+        <input type="text" id="editPara" placeholder="Description" required>
+        <span class="focus-border"></span>
+      </div>
+      <div class="file-upload">
+        <label for="editPhotoInput" class="upload-btn">
+          <i class="fas fa-cloud-upload-alt"></i> Change Image
+        </label>
+        <input type="file" id="editPhotoInput" accept="image/*">
+        <span id="editFileName">Keep current image</span>
+      </div>
+      <button id="saveEdit" class="save-btn">
+        <i class="fas fa-save"></i> Save Changes
+      </button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
